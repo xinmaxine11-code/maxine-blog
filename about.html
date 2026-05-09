@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="about.title">关于我 | Maxine</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23FFB7C5'/><circle cx='38' cy='45' r='5' fill='white'/><circle cx='62' cy='45' r='5' fill='white'/></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Floating Decorations -->
+  <div class="decorations">
+    <span class="decoration deco-circle"></span>
+    <span class="decoration deco-circle"></span>
+    <span class="decoration deco-circle"></span>
+    <span class="decoration deco-circle"></span>
+    <span class="decoration deco-circle"></span>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">
+        <span data-i18n="site.name">Maxine</span>
+      </a>
+      <nav>
+        <a href="index.html" data-i18n="nav.home">首页</a>
+        <a href="novels.html" data-i18n="nav.novels">小说</a>
+        <a href="life.html" data-i18n="nav.life">日常</a>
+        <a href="about.html" class="active" data-i18n="nav.about">关于我</a>
+        <button class="lang-toggle" onclick="toggleLang()" data-i18n="common.langToggle">EN</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="about-content">
+      <div class="about-text">
+        <h1 data-i18n="about.greeting">你好呀！</h1>
+        <p data-i18n="about.description">我是一个喜欢写故事、记录生活的人。平时喜欢看看动画、听听音乐、逛逛大自然。这个网站是我的小天地，希望能在这里分享一些有趣的东西。</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p data-i18n="footer.copyright">用爱和温暖编织</p>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" onclick="window.scrollTo({top: 0})" title="回到顶部">↑</button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

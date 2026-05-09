@@ -1,0 +1,48 @@
+{
+  "site": {
+    "name": "Maxine",
+    "tagline": "写写故事，记记日常",
+    "description": "一个充满温暖与想象的小天地"
+  },
+  "nav": {
+    "home": "首页",
+    "novels": "茕茕孑立",
+    "life": "禹禹独行",
+    "about": "关于我"
+  },
+  "home": {
+    "welcome": "欢迎来到我的小窝",
+    "intro": "在这里，我写一些奇奇怪怪的故事，也记录生活中的小确幸。希望这里能给你带来一点温暖和快乐。",
+    "latestNovel": "最新小说",
+    "latestLife": "最近日常",
+    "viewAll": "查看全部"
+  },
+  "novels": {
+    "title": "茕茕孑立",
+    "subtitle": "每一个故事都是一场冒险",
+    "tags": "标签",
+    "readMore": "阅读更多",
+    "noContent": "还没有小说呢，敬请期待！"
+  },
+  "life": {
+    "title": "禹禹独行",
+    "subtitle": "记录那些闪闪发光的瞬间",
+    "noContent": "还没有日常记录呢，敬请期待！"
+  },
+  "about": {
+    "title": "关于我",
+    "greeting": "你好呀！",
+    "description": "我是一个喜欢写故事、记录生活的人。平时喜欢看看动画、听听音乐、逛逛大自然。这个网站是我的小天地，希望能在这里分享一些有趣的东西。"
+  },
+  "footer": {
+    "copyright": "用爱和温暖编织",
+    "backToTop": "回到顶部"
+  },
+  "common": {
+    "date": "日期",
+    "author": "作者",
+    "tags": "标签",
+    "loading": "加载中...",
+    "langToggle": "EN"
+  }
+}

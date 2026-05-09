@@ -1,0 +1,48 @@
+{
+  "site": {
+    "name": "Maxine",
+    "tagline": "Writing stories, recording moments",
+    "description": "A cozy corner of warmth and imagination"
+  },
+  "nav": {
+    "home": "Home",
+    "novels": "Novels",
+    "life": "Daily Life",
+    "about": "About"
+  },
+  "home": {
+    "welcome": "Welcome to my little nest",
+    "intro": "Here, I write quirky stories and record small joys in life. Hope this place brings you a little warmth and happiness.",
+    "latestNovel": "Latest Novel",
+    "latestLife": "Recent Moments",
+    "viewAll": "View All"
+  },
+  "novels": {
+    "title": "Novels",
+    "subtitle": "Every story is an adventure",
+    "tags": "Tags",
+    "readMore": "Read More",
+    "noContent": "No novels yet, stay tuned!"
+  },
+  "life": {
+    "title": "Daily Life",
+    "subtitle": "Recording those shining moments",
+    "noContent": "No daily posts yet, stay tuned!"
+  },
+  "about": {
+    "title": "About Me",
+    "greeting": "Hello there!",
+    "description": "I'm someone who loves writing stories and recording life. I enjoy watching anime, listening to music, and exploring nature. This website is my little corner, where I hope to share interesting things with you."
+  },
+  "footer": {
+    "copyright": "Woven with love and warmth",
+    "backToTop": "Back to Top"
+  },
+  "common": {
+    "date": "Date",
+    "author": "Author",
+    "tags": "Tags",
+    "loading": "Loading...",
+    "langToggle": "中文"
+  }
+}

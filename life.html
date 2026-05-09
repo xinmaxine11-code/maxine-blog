@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="life.title">禹禹独行 | Maxine</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23FFB7C5'/><circle cx='38' cy='45' r='5' fill='white'/><circle cx='62' cy='45' r='5' fill='white'/></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Floating Decorations -->
+  <div class="decorations">
+    <span class="decoration deco-circle"></span>
+    <span class="decoration deco-circle"></span>
+    <span class="decoration deco-circle"></span>
+    <span class="decoration deco-circle"></span>
+    <span class="decoration deco-circle"></span>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">
+        <span data-i18n="site.name">Maxine</span>
+      </a>
+      <nav>
+        <a href="index.html" data-i18n="nav.home">首页</a>
+        <a href="novels.html" data-i18n="nav.novels">小说</a>
+        <a href="life.html" class="active" data-i18n="nav.life">日常</a>
+        <a href="about.html" data-i18n="nav.about">关于我</a>
+        <button class="lang-toggle" onclick="toggleLang()" data-i18n="common.langToggle">EN</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="section-title">
+      <h2><span data-i18n="life.title">生活日常</span></h2>
+      <p data-i18n="life.subtitle">记录那些闪闪发光的瞬间</p>
+    </div>
+
+    <!-- New Post Button -->
+    <div class="page-actions">
+      <a href="editor.html?type=life" class="btn-new-post">新建日常</a>
+    </div>
+
+    <!-- Life Cards -->
+    <div id="life-list" class="card-grid">
+      <!-- Loaded dynamically -->
+    </div>
+
+    <!-- Empty State -->
+    <div id="life-empty" class="empty-state" style="display: none;">
+      <svg class="empty-icon" viewBox="0 0 80 80" width="80" height="80">
+        <circle cx="40" cy="35" r="20" fill="none" stroke="#FFB7C5" stroke-width="2"/>
+        <circle cx="35" cy="32" r="2" fill="#FFB7C5"/>
+        <circle cx="45" cy="32" r="2" fill="#FFB7C5"/>
+        <path d="M35 40 Q40 44 45 40" stroke="#FFB7C5" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        <line x1="40" y1="55" x2="40" y2="65" stroke="#FFB7C5" stroke-width="2"/>
+        <line x1="32" y1="60" x2="48" y2="60" stroke="#FFB7C5" stroke-width="2"/>
+      </svg>
+      <p data-i18n="life.noContent">还没有日常记录呢，敬请期待！</p>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p data-i18n="footer.copyright">用爱和温暖编织</p>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" onclick="window.scrollTo({top: 0})" title="回到顶部">↑</button>
+
+  <script src="js/marked.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

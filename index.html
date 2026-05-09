@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maxine</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23FFB7C5'/><circle cx='38' cy='45' r='5' fill='white'/><circle cx='62' cy='45' r='5' fill='white'/></svg>">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Floating Decorations -->
+  <div class="decorations">
+    <span class="decoration deco-circle"></span>
+    <span class="decoration deco-circle"></span>
+    <span class="decoration deco-circle"></span>
+    <span class="decoration deco-circle"></span>
+    <span class="decoration deco-circle"></span>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">
+        <span data-i18n="site.name">Maxine</span>
+      </a>
+      <nav>
+        <a href="index.html" class="active" data-i18n="nav.home">首页</a>
+        <a href="novels.html" data-i18n="nav.novels">小说</a>
+        <a href="life.html" data-i18n="nav.life">日常</a>
+        <a href="about.html" data-i18n="nav.about">关于我</a>
+        <button class="lang-toggle" onclick="toggleLang()" data-i18n="common.langToggle">EN</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <h1 data-i18n="home.welcome">欢迎来到我的小窝</h1>
+      <p data-i18n="home.intro">在这里，我写一些奇奇怪怪的故事，也记录生活中的小确幸。希望这里能给你带来一点温暖和快乐。</p>
+    </section>
+
+    <!-- Latest Novels -->
+    <section>
+      <div class="section-title">
+        <h2><span data-i18n="home.latestNovel">最新小说</span></h2>
+      </div>
+      <div id="latest-novels" class="card-grid">
+        <!-- Loaded dynamically -->
+      </div>
+    </section>
+
+    <!-- Latest Life -->
+    <section>
+      <div class="section-title">
+        <h2><span data-i18n="home.latestLife">最近日常</span></h2>
+      </div>
+      <div id="latest-life" class="card-grid">
+        <!-- Loaded dynamically -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p data-i18n="footer.copyright">用爱和温暖编织</p>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" onclick="window.scrollTo({top: 0})" title="回到顶部">↑</button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

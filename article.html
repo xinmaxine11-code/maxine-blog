@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文章 | Maxine</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23FFB7C5'/><circle cx='38' cy='45' r='5' fill='white'/><circle cx='62' cy='45' r='5' fill='white'/></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .back-nav { display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; color: var(--pink); font-weight: 600; }
+    .back-nav:hover { gap: 0.8rem; }
+  </style>
+</head>
+<body>
+  <div class="decorations">
+    <span class="decoration deco-circle"></span>
+    <span class="decoration deco-circle"></span>
+    <span class="decoration deco-circle"></span>
+    <span class="decoration deco-circle"></span>
+    <span class="decoration deco-circle"></span>
+  </div>
+
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">
+        <span data-i18n="site.name">Maxine</span>
+      </a>
+      <nav>
+        <a href="index.html" data-i18n="nav.home">首页</a>
+        <a href="novels.html" data-i18n="nav.novels">小说</a>
+        <a href="life.html" data-i18n="nav.life">日常</a>
+        <a href="about.html" data-i18n="nav.about">关于我</a>
+        <button class="lang-toggle" onclick="toggleLang()" data-i18n="common.langToggle">EN</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <a href="javascript:history.back()" class="back-nav">← <span data-i18n="nav.home">返回</span></a>
+    <article class="article" id="article-content">
+      <div class="loading">加载中</div>
+    </article>
+  </main>
+
+  <footer>
+    <p data-i18n="footer.copyright">用爱和温暖编织</p>
+  </footer>
+
+  <button class="back-to-top" onclick="window.scrollTo({top: 0})" title="回到顶部">↑</button>
+
+  <script src="js/marked.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const params = new URLSearchParams(window.location.search);
+      const file = params.get('file');
+      const type = params.get('type') || 'novels';
+
+      if (!file) {
+        document.getElementById('article-content').innerHTML = '<p>文章不存在</p>';
+        return;
+      }
+
+      try {
+        const res = await fetch(`content/${type}/${file}`);
+        const text = await res.text();
+        const parsed = parseMarkdown(text);
+
+        if (!parsed) {
+          document.getElementById('article-content').innerHTML = '<p>无法解析文章内容</p>';
+          return;
+        }
+
+        const title = parsed.title;
+        const html = marked.parse(parsed.content || '');
+
+        document.getElementById('article-content').innerHTML = `
+          <h1>${title}</h1>
+          <div class="meta">
+            <span>${parsed.date}</span>
+            ${parsed.tags.length ? `<span>${parsed.tags.map(t => `<span class="tag">${t}</span>`).join(' ')}</span>` : ''}
+          </div>
+          <div class="content">${html}</div>
+        `;
+
+        document.title = `${title} | Maxine`;
+      } catch (e) {
+        document.getElementById('article-content').innerHTML = '<p>文章加载失败</p>';
+      }
+    });
+
+    function parseMarkdown(text) {
+      const match = text.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+      if (!match) return null;
+      const frontmatter = {};
+      match[1].split('\n').forEach(line => {
+        const [key, ...rest] = line.split(':');
+        if (key && rest.length) frontmatter[key.trim()] = rest.join(':').trim().replace(/^["']|["']$/g, '');
+      });
+      return {
+        title: frontmatter.title || frontmatter['标题'] || 'Untitled',
+        date: frontmatter.date || frontmatter['日期'] || '',
+        tags: (frontmatter.tags || frontmatter['标签'] || '').split(',').map(t => t.trim()).filter(Boolean),
+        content: match[2]
+      };
+    }
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新建文章 | Maxine</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23FFB7C5'/></svg>">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/editor.css">
+</head>
+<body>
+  <div class="decorations">
+    <span class="decoration deco-circle"></span>
+    <span class="decoration deco-circle"></span>
+    <span class="decoration deco-circle"></span>
+    <span class="decoration deco-circle"></span>
+    <span class="decoration deco-circle"></span>
+  </div>
+
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">
+        <span data-i18n="site.name">Maxine</span>
+      </a>
+      <nav>
+        <a href="index.html" data-i18n="nav.home">首页</a>
+        <a href="novels.html" data-i18n="nav.novels">小说</a>
+        <a href="life.html" data-i18n="nav.life">日常</a>
+        <a href="about.html" data-i18n="nav.about">关于我</a>
+        <button class="lang-toggle" onclick="toggleLang()" data-i18n="common.langToggle">EN</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="editor-layout">
+      <!-- Left: Editor -->
+      <div class="editor-panel">
+        <h2 class="panel-title">新建文章</h2>
+
+        <div class="form-group">
+          <label for="post-type">类型</label>
+          <select id="post-type">
+            <option value="novels">小说</option>
+            <option value="life">日常</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="post-title">标题</label>
+          <input type="text" id="post-title" placeholder="输入文章标题">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="post-date">日期</label>
+            <input type="date" id="post-date">
+          </div>
+          <div class="form-group">
+            <label for="post-tags">标签</label>
+            <input type="text" id="post-tags" placeholder="用逗号分隔">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="post-excerpt">摘要</label>
+          <textarea id="post-excerpt" rows="2" placeholder="文章简介"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="post-content">正文（支持 Markdown）</label>
+          <textarea id="post-content" rows="20" placeholder="在这里写文章..."></textarea>
+        </div>
+
+        <div class="editor-actions">
+          <button class="btn btn-preview" onclick="previewPost()">预览</button>
+          <button class="btn btn-publish" onclick="publishPost()">发布并下载</button>
+        </div>
+      </div>
+
+      <!-- Right: Preview -->
+      <div class="preview-panel">
+        <h2 class="panel-title">预览</h2>
+        <div id="preview-content" class="preview-content">
+          <p class="preview-placeholder">点击"预览"查看效果</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p data-i18n="footer.copyright">用爱和温暖编织</p>
+  </footer>
+
+  <button class="back-to-top" onclick="window.scrollTo({top: 0})" title="回到顶部">↑</button>
+
+  <script src="js/marked.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/editor.js"></script>
+</body>
+</html>
