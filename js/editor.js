@@ -103,15 +103,23 @@ excerpt: ${excerpt}
   try {
     // Check if file exists (to get the sha for update)
     let sha = null;
+    const checkUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${filePath}?ref=${GITHUB_BRANCH}`;
+    console.log('Checking file at:', checkUrl);
     try {
-      const checkRes = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${filePath}?ref=${GITHUB_BRANCH}`, {
+      const checkRes = await fetch(checkUrl, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
+      console.log('Check response:', checkRes.status);
       if (checkRes.ok) {
         const data = await checkRes.json();
         sha = data.sha;
+      } else {
+        const errData = await checkRes.json();
+        console.log('Check error:', errData);
       }
-    } catch (e) { /* file doesn't exist */ }
+    } catch (e) {
+      console.log('Check request failed:', e);
+    }
 
     const encodedContent = btoa(unescape(encodeURIComponent(mdContent)));
 
@@ -122,7 +130,10 @@ excerpt: ${excerpt}
     };
     if (sha) body.sha = sha;
 
-    const res = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${filePath}`, {
+    const publishUrl = `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${filePath}`;
+    console.log('Publishing to:', publishUrl);
+
+    const res = await fetch(publishUrl, {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -130,6 +141,8 @@ excerpt: ${excerpt}
       },
       body: JSON.stringify(body)
     });
+
+    console.log('Publish response status:', res.status);
 
     if (res.ok) {
       // Remove from drafts
@@ -144,9 +157,11 @@ excerpt: ${excerpt}
       alert('发布成功！Vercel 将自动部署，约 1-2 分钟后在网站上可见。');
     } else {
       const err = await res.json();
-      alert('发布失败: ' + (err.message || res.statusText));
+      console.error('Publish error:', err);
+      alert(`发布失败 (${res.status}): ${err.message || res.statusText}\n\n请打开浏览器控制台 (F12) 查看详细日志。`);
     }
   } catch (e) {
+    console.error('Publish exception:', e);
     alert('发布失败: ' + e.message);
   }
 }
