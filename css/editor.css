@@ -56,6 +56,13 @@
   box-shadow: 0 0 0 3px rgba(255, 183, 197, 0.2);
 }
 
+.word-count {
+  text-align: right;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-top: 0.4rem;
+}
+
 .form-group textarea {
   resize: vertical;
   line-height: 1.8;
@@ -82,6 +89,16 @@
   font-weight: 600;
   cursor: pointer;
   transition: var(--transition);
+}
+
+.btn-draft {
+  background: var(--blue);
+  color: var(--white);
+}
+
+.btn-draft:hover {
+  background: #6BBCE0;
+  transform: scale(1.05);
 }
 
 .btn-preview {
@@ -208,6 +225,93 @@
   background: #FF8FA3;
   transform: translateY(-2px);
   box-shadow: var(--shadow);
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-hover);
+  padding: 2rem;
+  max-width: 500px;
+  width: 90%;
+}
+
+.modal-content h3 {
+  color: var(--pink);
+  margin-bottom: 0.5rem;
+}
+
+.modal-content a {
+  color: var(--pink);
+  text-decoration: underline;
+}
+
+/* Drafts Section */
+.drafts-section {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px dashed var(--pink-light);
+}
+
+.drafts-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.draft-item {
+  background: var(--pink-bg);
+  border: 2px solid var(--pink-light);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1rem;
+  margin-bottom: 0.8rem;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+}
+
+.draft-item:hover {
+  border-color: var(--pink);
+  background: var(--white);
+}
+
+.draft-item h4 {
+  margin: 0 0 0.3rem;
+  font-size: 1rem;
+  color: var(--text);
+  padding-right: 2rem;
+}
+
+.draft-item .draft-meta {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
+
+.draft-delete {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  background: none;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.2rem;
+  transition: var(--transition);
+}
+
+.draft-delete:hover {
+  color: #e74c3c;
 }
 
 /* Responsive */
